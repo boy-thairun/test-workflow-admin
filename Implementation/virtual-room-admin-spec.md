@@ -15,11 +15,13 @@
 
 ## Task Cards
 
+AUTH-030 ใช้แพ็กเกจสัญญา v1 ที่ pin จาก API ผ่าน tarball ใน `src/auth/contracts/` และใช้ fixtures ของแพ็กเกจตรวจเส้นทางแอดมิน ผู้ใช้ทั่วไป และเซสชันหมดอายุใน Playwright ส่วนการทดสอบกับบัญชีแอดมินบน API จริงใช้เมื่อ AUTH-010 พร้อม
+
 AUTH-030 กำหนดสคริปต์ใน `package.json` ให้ `test` รัน `vitest run`, `lint` รัน `eslint .`, `typecheck` รัน `tsc --noEmit`, `test:e2e` รัน `playwright test` และใช้ `pnpm test`, `pnpm lint`, `pnpm typecheck`, `pnpm test:e2e` ตรวจงาน
 
 | การ์ด | ทำหลัง | Owned Paths | Acceptance Criteria |
 |---|---|---|---|
-| AUTH-030 ล็อกอินและตรวจสิทธิ์เข้า Admin · Feature · 5 แต้ม | CONTRACT-010 Frozen | `src/app/**`, `src/auth/**`, `tests/auth/**`, `tests/e2e/auth.spec.ts`, `index.html`, `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `vite.config.ts`, `vitest.config.ts`, `playwright.config.ts`, `eslint.config.mjs` | แอดมินเข้าหน้าจัดการได้ เปิด URL ตรงและรีเฟรชได้เมื่อมีเซสชัน ผู้ใช้ทั่วไปเห็นสถานะไม่มีสิทธิ์ |
+| AUTH-030 ล็อกอินและตรวจสิทธิ์เข้า Admin · Feature · 5 แต้ม | CONTRACT-010 Frozen | `src/app/**`, `src/auth/**`, `tests/auth/**`, `tests/e2e/auth.spec.ts`, `index.html`, `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `vite.config.ts`, `vitest.config.ts`, `playwright.config.ts`, `eslint.config.mjs`, `.github/workflows/verify-admin.yml` | แอดมินเข้าหน้าจัดการได้ เปิด URL ตรงและรีเฟรชได้เมื่อมีเซสชัน ผู้ใช้ทั่วไปเห็นสถานะไม่มีสิทธิ์ |
 | USER-020 เปิดรายการผู้ใช้และแก้ชื่อ · Feature · 5 แต้ม | AUTH-030, CONTRACT-010 | `src/users/**`, `tests/users/**`, `tests/e2e/users.spec.*` | แสดงรายการและแบ่งหน้า เปิดฟอร์มของบัญชีที่เลือก ส่งเฉพาะ `displayName` และอัปเดตแถวจากข้อมูลที่ API ยืนยัน |
 
 **Must Not Modify** จำกัดการแก้ไขตาม Owned Paths การเปลี่ยน field ที่แก้ได้หรือกฎสิทธิ์จัดการเริ่มจากสัญญาของ API
